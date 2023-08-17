@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Mi Información
+{% endblock titulo %}
+
+{% block contenido %}
+<article style="max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; background-color: #f9f9f9;">
+    <h1 style="font-size: 24px; margin-bottom: 10px;">{{ informacion.nombre }}</h1>
+    <p style="font-size: 16px; margin-bottom: 10px;">Email: {{ informacion.email }}</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">Descripción : Hola mi nombre es Santiago Nuñez Muñoz, soy un chico de 23 años de edad que ahora mismo estudia una tecnicatura en sistemas informaticosy trabaja como ayudante mecanico por hobbie. Entre a este curso por simple curiosidad y con la esperanza de aprender cosas nuevas y me voy muy contento, tanto con los profesores y tutores, como con la plataforma y el CoderAsk que me saco de varios apuros. Espero les guste la idea del proyecto, muchas gracias.</p>
+</article>
+{% endblock contenido %}

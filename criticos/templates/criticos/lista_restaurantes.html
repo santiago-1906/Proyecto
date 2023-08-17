@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Restaurantes
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <title>Restaurantes</title>
+</head>
+<body>
+    <h1>Restaurantes</h1>
+    <a class="btn btn-primary" href="{% url 'agregar_restaurante' %}">Añadir nuevo restaurante</a>
+    <br><br>
+    <a href="{% url 'lista_restaurantes' %}">Ver todos</a>
+    <table class="table">
+        <tbody>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Descripción</th>
+            <th>Creado por</th> <!-- Nuevo encabezado -->
+            <th>Acciones</th>
+        </tr>
+        {% for restaurante in restaurantes %}
+        <tr>
+            <td>{{ restaurante.nombre }}</td>
+            <td>{{ restaurante.direccion }}</td>
+            <td>{{ restaurante.telefono }}</td>
+            <td>{{ restaurante.descripcion }}</td>
+            <td>{{ restaurante.creado_por.username }}</td> <!-- Mostrar el nombre del usuario -->
+            <td>
+                <a class="btn btn-info btn-sm" href="{% url 'detalle_restaurante' restaurante.id %}">Detalle</a>
+                <a class="btn btn-warning btn-sm" href="{% url 'editar_restaurante' restaurante.id %}">Editar</a>
+                <form action="{% url 'eliminar_restaurante' restaurante.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>    
+    </table>
+{% endblock contenido %}

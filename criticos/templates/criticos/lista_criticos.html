@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Criticos 
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <title>Criticos</title>
+</head>
+<body>
+    <h1>Criticos</h1>
+    <a class="btn btn-primary" href="{% url 'agregar_critico' %}">Añadir nuevo crítico</a>
+    <br><br>
+    <a href="{% url 'lista_criticos' %}">Ver todos</a>
+    
+    <table class="table">
+        <tbody>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Biografía</th>
+        </tr>
+        {% for critico in criticos %}
+        <tr>
+            <td>{{ critico.nombre }}</td>
+            <td>{{ critico.apellido }}</td>
+            <td>{{ critico.email }}</td>
+            <td>{{ critico.telefono }}</td>
+            <td>{{ critico.bio }}</td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+{% endblock contenido %}

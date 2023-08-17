@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Detalle del Restaurante: {{ restaurante.nombre }}
+{% endblock titulo %}
+
+{% block contenido %}
+<article style="max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; background-color: #f9f9f9;">
+    <h1 style="font-size: 24px; margin-bottom: 10px;">{{ restaurante.nombre }}</h1>
+    <p style="font-size: 16px; margin-bottom: 10px;">Dirección: {{ restaurante.direccion }}</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">Teléfono: {{ restaurante.telefono }}</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">Reseña: {{ restaurante.reseña }}</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">Descripción: {{ restaurante.descripcion }}</p>
+    <a href="{% url 'lista_restaurantes' %}" style="display: inline-block; margin-top: 15px; text-decoration: none; background-color: #007bff; color: #fff; padding: 8px 12px; border-radius: 4px;">Volver a la lista de restaurantes</a>
+</article>
+{% endblock contenido %}
